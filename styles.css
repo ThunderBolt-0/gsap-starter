@@ -1,7 +1,8 @@
 body {
   margin: 0;
-  background: #111;
+  background: #0d0d0d;
   overflow-x: hidden;
+  font-family: sans-serif;
 }
 
 .spacer {
@@ -11,10 +12,10 @@ body {
 .rectangle {
   width: 200px;
   height: 100px;
-  border-radius: 25px;
-  margin: 100px auto;
+  border-radius: 20px;
+  margin: 60px auto;
+  transform: scale(0.8) translateY(100px);
   opacity: 0;
-  transform: translateX(-200px);
 }
 
 .red    { background-color: #e74c3c; }
