@@ -1,22 +1,25 @@
 gsap.registerPlugin(ScrollTrigger);
 
-gsap.fromTo(".rectangle",
-  {
-    y: 100,
-    scale: 0.8,
-    opacity: 0
-  },
-  {
+// Animate hero text
+gsap.to(".hero-text", {
+  opacity: 1,
+  duration: 1.5,
+  delay: 0.5,
+  ease: "power2.out",
+  y: -20
+});
+
+// Animate each panel on scroll
+gsap.utils.toArray(".panel").forEach(panel => {
+  gsap.to(panel, {
     scrollTrigger: {
-      trigger: ".rectangle",
-      start: "top 85%",
+      trigger: panel,
+      start: "top 80%",
       toggleActions: "play none none reverse"
     },
-    y: 0,
-    scale: 1,
     opacity: 1,
+    y: 0,
     duration: 1,
-    ease: "power3.out",
-    stagger: 0.2
-  }
-);
+    ease: "power3.out"
+  });
+});
