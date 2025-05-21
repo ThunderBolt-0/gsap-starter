@@ -1,27 +1,32 @@
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 body {
-    overflow-x: hidden;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #1b1b1b;
 }
 
-#page-1, #page-2, #page-3 {
-    min-height: 100vh;
-    background-color: rgb(0, 0, 0);
+.box {
+  width: 50px;
+  height: 50px;
+  margin: 10px;
+  background: #ffa31a;
+  border-radius: 100px;
 }
 
-#page-2 {
-    background-color: #3e98ff;
-    padding-block: 5vw;
+.buttons-container {
+  display: flex;
 }
 
-#page-2 h1 {
-    font-size: calc(3rem + 20vw);
-    font-family: Inter, sans-serif;
-    text-transform: uppercase;
-    white-space: nowrap;
-    font-weight: 700;
+button {
+  padding: 10px 20px;
+  margin-left: 10px;
+  outline: none;
 }
