@@ -1,9 +1,19 @@
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
-  overflow-x: hidden;
   background: #111;
   color: white;
+  overflow-x: hidden;
+}
+
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 4px;
+  background: #ff4b2b;
+  width: 0%;
+  z-index: 10;
 }
 
 section {
@@ -11,8 +21,10 @@ section {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  padding: 40px;
+  box-sizing: border-box;
+  flex-direction: column;
   text-align: center;
-  padding: 20px;
 }
 
 .hero {
@@ -20,23 +32,45 @@ section {
 }
 
 .parallax-section {
-  background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb') center / cover no-repeat fixed;
-  color: #fff;
+  background: url('https://images.unsplash.com/photo-1498050108023-c5249f4df085') center / cover no-repeat fixed;
   font-size: 2em;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+  color: white;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 }
 
-.box-section {
-  background: #fefefe;
-  color: black;
+.about-section {
+  background: #1e1e1e;
+  flex-direction: row;
+  justify-content: space-around;
+  gap: 50px;
 }
 
-.box {
-  width: 120px;
-  height: 120px;
+.about-text, .about-img {
+  max-width: 400px;
+}
+
+.cards-section {
+  background: #000;
+  flex-direction: row;
+  gap: 30px;
+}
+
+.card {
   background: linear-gradient(135deg, #ff416c, #ff4b2b);
-  border-radius: 20px;
+  padding: 40px;
+  border-radius: 16px;
+  color: white;
+  font-size: 1.5em;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  transform: translateY(100px);
   opacity: 0;
-  transform: scale(0.5) rotate(0deg);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
+
+/* Initial hidden states */
+.fade-in, .slide-left, .slide-right, .fly-up {
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+.slide-left { transform: translateX(-100px); }
+.slide-right { transform: translateX(100px); }
