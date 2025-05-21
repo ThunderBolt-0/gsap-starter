@@ -1,9 +1,14 @@
-// GSAP Animation
-gsap.to(".box", {
-  x: 400, // Move the box 400px to the right
-  rotation: 360, // Rotate the box
-  duration: 2, // Duration of the animation (in seconds)
-  ease: "power2.inOut", // Easing function for smoother animation
-  repeat: -1, // Repeat infinitely
-  yoyo: true // Make the animation reverse back after completing
+gsap.to(".headline", {
+  duration: 1.2,
+  opacity: 1,
+  y: 0,
+  ease: "power4.out"
+});
+
+gsap.to(".cta", {
+  delay: 1,
+  duration: 1,
+  opacity: 1,
+  scale: 1,
+  ease: "back.out(1.7)"
 });
