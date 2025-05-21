@@ -1,32 +1,30 @@
-* {
-  padding: 0;
+body {
   margin: 0;
-  box-sizing: border-box;
+  font-family: sans-serif;
+  overflow-x: hidden;
 }
 
-body {
+.hero {
   height: 100vh;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: #1b1b1b;
+  background: #222;
+  color: white;
+}
+
+.box-section {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f0f0f0;
 }
 
 .box {
-  width: 50px;
-  height: 50px;
-  margin: 10px;
-  background: #ffa31a;
-  border-radius: 100px;
-}
-
-.buttons-container {
-  display: flex;
-}
-
-button {
-  padding: 10px 20px;
-  margin-left: 10px;
-  outline: none;
+  width: 100px;
+  height: 100px;
+  background: crimson;
+  transform: translateY(100px);
+  opacity: 0;
 }
