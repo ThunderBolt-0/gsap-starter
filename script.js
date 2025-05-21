@@ -1,37 +1,35 @@
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
-gsap.utils.toArray('.marquee').forEach((el, index) => {
-	const w = el.querySelector('.track');
-	const [x, xEnd] = (index % 2 == 0) ? [-500, -1500] : [-500, 0];
-	gsap.fromTo(w, {  x  }, {
-		x: xEnd,
-		scrollTrigger: {
-			scrub: 1
-		}
-	});
+// create the smooth scroller FIRST!
+let smoother = ScrollSmoother.create({
+  smooth: 2,
+  effects: true,
+  normalizeScroll: true
 });
 
-const centerContent = document.getElementById('center-content');
-const centerFold = document.getElementById('center-fold');
-const foldsContent = Array.from(document.querySelectorAll('.fold-content'));
+// pin box-c when it reaches the center of the viewport, for 300px
+ScrollTrigger.create({
+  trigger: ".box-c",
+  pin: true,
+  start: "center center",
+  end: "+=300",
+  markers: true
+});
 
-let targetScroll = -(
-  document.documentElement.scrollTop || document.body.scrollTop
-);
-let currentScroll = targetScroll;
+document.querySelector("button").addEventListener("click", e => {
+  // scroll to the spot where .box-c is in the center.
+  // parameters: element, smooth, position
+  smoother.scrollTo(".box-c", true, "center center");
+  
+  // or you could animate the scrollTop:
+  // gsap.to(smoother, {
+  //  scrollTop: smoother.offset(".box-c", "center center"),
+  //  duration: 1
+  // });
+});
 
-const tick = () => {
-  const overflowHeight = centerContent.clientHeight - centerFold.clientHeight;
 
-  document.body.style.height = `${overflowHeight + window.innerHeight}px`;
-
-  targetScroll = -(
-    document.documentElement.scrollTop || document.body.scrollTop
-  );
-  currentScroll += (targetScroll - currentScroll) * 0.1;
-  foldsContent.forEach(content => {
-    content.style.transform = `translateY(${currentScroll}px)`;
-  });
-  requestAnimationFrame(tick);
-};
-tick();
+// 💚 This just adds the GSAP link to this pen, don't copy this bit
+import { GSAPInfoBar } from "https://codepen.io/GreenSock/pen/vYqpyLg.js"
+new GSAPInfoBar({ link: "https://gsap.com/docs/v3/Plugins/ScrollSmoother/"});
+// 💚 Happy tweening!
