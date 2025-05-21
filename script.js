@@ -1,12 +1,12 @@
-gsap.to("#myElement", {
-  scrollTrigger: {
-    trigger: "#myElement",
-    start: "top 20%", // Start the animation when the element enters 20% from the top
-    end: "bottom 80%", // End when the element is 80% from the bottom
-    once: true, // Only trigger once
-    pin: true,  // Pin the element to the viewport (optional)
-    // Add more ScrollTrigger options as needed
-  },
-  x: 200,
-  duration: 1
-});
+gsap.to("#page-2 h1", {
+    transform: "translate(-300%)",
+    scrollTrigger: {
+        trigger: "#page-2 h1",
+        scroller: "body",
+        markers: true,
+        start: "top 0%",
+        end: "top -150%",
+        scrub: 1,
+        pin: true,
+    }
+})
