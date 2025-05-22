@@ -1,25 +1,13 @@
-gsap.registerPlugin(ScrollTrigger);
+//use the defaults
+gsap.to(element, {duration: 1, scrambleText: "THIS IS NEW TEXT"});//or customize things:
 
-// Animate hero text
-gsap.to(".hero-text", {
-  opacity: 1,
-  duration: 3,
-  delay: 1,
-  ease: "power2.out",
-  y: -50
-});
-
-// Animate each panel on scroll
-gsap.utils.toArray(".panel").forEach(panel => {
-  gsap.to(panel, {
-    scrollTrigger: {
-      trigger: panel,
-      start: "top 50%",
-      toggleActions: "play none none reverse"
-    },
-    opacity: 1,
-    y: 0,
-    duration: 1,
-    ease: "power3.out"
-  });
+gsap.to(element, {
+  duration: 1, 
+  scrambleText: {
+    text: "THIS IS NEW TEXT", 
+    chars: "XO", 
+    revealDelay: 0.5, 
+    speed: 0.3, 
+    newClass: "myClass"
+  }
 });
