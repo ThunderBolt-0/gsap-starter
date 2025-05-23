@@ -1,20 +1,20 @@
-const string = document.getElementById("string");
-let path = `M 100 200 Q 500 200 900 200`
-let finalPath = `M 100 200 Q 500 200 900 200`
-
-string.addEventListener("mousemove", (dets) => {
-    path = `M 100 200 Q ${dets.x} ${dets.y} 900 200`
-
-    gsap.to("svg path", {
-        attr: {d: path},
-        duration: 0.5,
-        ease: "power3.out",
-    })
-})
-string.addEventListener("mouseleave", () => {
-    gsap.to("svg path", {
-        attr: {d: finalPath},
-        duration: 1.5,
-        ease: "elastic.out(1,0.2)",
-    })
-})
+// Select elements
+const title = document.querySelector('.title');
+const images = document.querySelectorAll('.image-gallery img');
+// Title animation
+gsap.from(title, { 
+    duration: 1.5, 
+    y: -100, 
+    opacity: 0, 
+    ease: "bounce.out"
+});
+// Images animation
+images.forEach((image, index) => {
+    gsap.from(image, { 
+        duration: 1, 
+        scale: 0, 
+        delay: index * 0.5, 
+        opacity: 0, 
+        ease: "back.out(1.7)"
+    });
+});
